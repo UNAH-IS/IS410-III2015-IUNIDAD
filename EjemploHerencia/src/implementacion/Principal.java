@@ -3,10 +3,11 @@ package implementacion;
 import java.util.ArrayList;
 
 import clases.Alumno;
+import clases.Carrera;
 import clases.Maestro;
 import clases.Persona;
 
-public class Principal {
+public class Principal{
 	private ArrayList<Persona> personas;
 	private Persona p1;
 	private Maestro m1;
@@ -15,12 +16,14 @@ public class Principal {
 		
 	public Principal(){
 		personas = new ArrayList<Persona>();
-		p1 = new Persona("0801195500111","Juan","M",20);
+		//p1 = new Persona("0801195500111","Juan","M",20);
 		m1 = new Maestro("0866198200111","Pedro","M",50, 123, 20000.05);
-		a1 = new Alumno("0809200000111","Maria","F",20,"2001100123456","Ing en Sistemas");
-		a2 = new Alumno("065465200000111","Luis","M",20,"201100123456","Ing en Sistemas");
+		a1 = new Alumno("0809200000111","Maria","F",20,"2001100123456",
+							new Carrera(115,"Ing. en Sistemas",56));
+		a2 = new Alumno("065465200000111","Luis","M",20,"201100123456",
+					new Carrera(114,"Ing. Electrica",57));
 		
-		personas.add(p1);
+		//personas.add(p1);
 		personas.add(m1);
 		personas.add(a1);
 		personas.add(a2);
@@ -28,7 +31,7 @@ public class Principal {
 		for (Persona p : personas){ //For each
 			//objeto instanceof Clase
 			if (p instanceof Alumno)
-				System.out.println(p);
+				System.out.println(p.toString());
 		}
 		
 		/*for (int i = 0; i< personas.size();i++){

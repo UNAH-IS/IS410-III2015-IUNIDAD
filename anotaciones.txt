@@ -1,0 +1,101 @@
+//Modificadores de acceso:
+//Clases, atributos, metodos
+public
+private
+protected
+default
+
+Modificador final: Definir una constante.
+Modificador static: Se utiliza para acceder a un atributo fuera de la clase sin necesidad de definir una instancia. (Ojo, no confundir con una constante).
+
+
+Constructor:
+*Es un metodo.
+*No tiene tipo de dato de retorno.
+*Tiene que tener el mismo nombre de la clase.
+*Puede haber mas de uno.
+*Es el primer metodo que se ejecuta al crear una instancia.
+*Puede recibir parametros.
+*Si no se crea un constructor, se crea automaticamente un constructor vacio por defecto.
+*Se recomienda tener un constructor vacio.
+*Tiene que ser public
+
+Sobrecarga de metodos: Metodos con mismo nombre pero con diferentes tipos o cantidades de parametros.
+
+Pilares de POO:
+*Encapsulacion: Definir atributos como privados y acceder a ellos mediante metodos publicos para proteger los datos.
+
+
+Colecciones:
+Objetos que almacenan mas objetos.
+
+ArrayList
+Indice: 0,1,2,3...
+
+HashMap
+Indice: Objeto->String
+Llave -> Valor
+
+
+List
+LinkedList
+HashTable
+Vector
+ObservableList (JavaFX)
+
+
+Solicitar informacion:
+JOptionPane: Cuadros de dialogo (Grafico).
+Scanner: Consola
+Formularios
+
+Herencia:
+Pilar de la programacion orientada a objetos que permite definir una clase padre que sea utilizada como base para nuevas clases hijas, de tal forma que estas clases hereden los atributos y metodos de la clase padre.
+Esta funcionalidad permite:
+*Mantener el codigo ordenado
+*Dar modularidad a los proyectos
+*Programas escalables (facil crecimiento, futuras modificaciones faciles de mantener).
+*Reutilizacion de codigo
+
+Abstraccion
+Definir atributos y metodos de una clase y desarrollar la logica de la misma de tal forma que el usuario(programador) que la utilice no necesariamente sepa como funciona internamente, se abstrae del funcionamiento.
+
+Polimorfismo.
+*
+Composicion:
+Utilizar en un atributo de una clase un tipo de dato que tambien sea una clase definida previamente.
+
+Clases Abstractas
+Tambien llamadas clases resumen, son clases con las siguientes caracteristicas:
+
+*Se agrega el modificador abstract a una clase para que sea abstracta.
+*No se puede instanciar
+*Puede tener o no un metodo abstracto, es decir se puede agregar el modificador abstract a un metodo.
+*Todo metodo abstracto tiene que sobreescribirse en clases hijas.
+*Un metodo abstracto no tiene cuerpo, solo se declara.
+*Usualmente se utiliza clases abstractas en clases padre.
+*Pueden tener uno o mas constructores como una clase normal.
+*Si un metodo es abstracto la clase debe ser abstracta.
+
+
+Interfaces
+Estructura de datos.
+Se les llama clases abstractas puras!
+Reglas:
+*Se utiliza la palabra reservada interface en vez de class para definir una interfaz.
+*No se puede instanciar.
+*No tiene constructor.
+*Todos sus metodos son abstractos.
+	-> Se necesitan sobreescribir en clases hijas.
+	-> Por lo tanto no tienen cuerpo.
+*Sus atributos son public static final.
+*Se utilizan para simular herencia multiple.
+*Para heredar(implementar) una o varias interfaces se utiliza la palabra reservada implements.
+*Para que una interfaz herede de otra interfaz se utiliza extends.
+
+Uso de las interfaces:
+*Definicion de Listeners (eventos)
+	ActionListener (actionPerformed(){//})
+*Librerias de constantes
+*Agregar compatibilidad entre clases
+*Definir reglas

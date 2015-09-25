@@ -44,4 +44,9 @@ public class Maestro extends Persona{
 	public String toString(){
 		return super.toString() + codigoEmpleado + "\t\t"+ sueldo;
 	}
+	
+	@Override
+	public void guardarDatos(){
+		System.out.println("Guardar datos");
+	}
 }

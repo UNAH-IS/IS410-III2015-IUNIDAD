@@ -1,6 +1,6 @@
 package clases;
 
-public class Persona{
+public abstract class Persona{
 	protected String identidad;
 	protected String nombre;
 	protected String genero;
@@ -56,7 +56,9 @@ public class Persona{
 				edad + "\t\t";
 	}
 	
-	public void guardarDatos(){
-		System.out.println("Metodo guardar informacion");
+	public abstract void guardarDatos();
+	
+	public void actualizarInformacion(){
+		System.out.println("Actualizar informacion (Clase persona)");
 	}
 }
