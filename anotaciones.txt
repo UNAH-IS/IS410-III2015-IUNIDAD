@@ -21,9 +21,20 @@ Constructor:
 *Tiene que ser public
 
 Sobrecarga de metodos: Metodos con mismo nombre pero con diferentes tipos o cantidades de parametros.
+Sobreescritura de metodos:
+Volver a escribir un metodo en la clase hija que ha sido definido en la clase padre, de tal forma que el metodo sobreescrito actue diferente, es decir el cuerpo del metodo se reescribe.
 
+Polimorfismo:
+Funcionalidad que permite tener estructuras iguales(misma forma) pero con una funcionalidad diferente.
+En resumen misma forma diferente funcionalidad.
+Ejemplos de polimorfismo:
+	Sobreescritura de metodos
+	Sobrecarga de metodos
+	Compatibilidad de clases
+	
 Pilares de POO:
 *Encapsulacion: Definir atributos como privados y acceder a ellos mediante metodos publicos para proteger los datos.
+
 
 
 Colecciones:
