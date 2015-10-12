@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="385.0" prefWidth="281.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControladorRegistroComputadoras">
+<AnchorPane prefHeight="385.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControladorRegistroComputadoras">
    <children>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="176.0" prefWidth="267.0">
         <columnConstraints>
@@ -63,14 +63,15 @@
             <TextField fx:id="txtVideo" prefHeight="25.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <HBox layoutX="14.0" layoutY="200.0" prefHeight="35.0" prefWidth="251.0" spacing="5.0">
+      <HBox layoutX="14.0" layoutY="200.0" prefHeight="35.0" prefWidth="323.0" spacing="5.0">
          <children>
             <Button mnemonicParsing="false" onAction="#limpiarComponentes" text="Nuevo" />
-            <Button mnemonicParsing="false" onAction="#guardarRegistro" text="Guardar" />
-            <Button mnemonicParsing="false" onAction="#eliminarRegistro" text="Eliminar" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardarRegistro" text="Guardar" />
+            <Button fx:id="btnActualizar" disable="true" mnemonicParsing="false" onAction="#actualizarRegistro" text="Actualizar" />
+            <Button fx:id="btnEliminar" disable="true" mnemonicParsing="false" onAction="#eliminarRegistro" text="Eliminar" />
             <Button mnemonicParsing="false" onAction="#salir" text="Salir" />
          </children>
       </HBox>
-      <ListView fx:id="lstViewComputadoras" layoutX="4.0" layoutY="235.0" prefHeight="143.0" prefWidth="273.0" />
+      <ListView fx:id="lstViewComputadoras" layoutX="4.0" layoutY="235.0" prefHeight="143.0" prefWidth="334.0" />
    </children>
 </AnchorPane>
