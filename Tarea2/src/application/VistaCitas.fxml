@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="557.0" prefWidth="531.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.ControladorCitas">
+   <children>
+      <SplitPane dividerPositions="0.5526315789473685" layoutX="34.0" layoutY="42.0" orientation="VERTICAL" prefHeight="536.0" prefWidth="475.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="259.0" prefWidth="490.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="115.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="375.0" minWidth="10.0" prefWidth="375.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Fecha:" GridPane.halignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="cboPacientes" prefHeight="25.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Paciente:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField prefHeight="25.0" prefWidth="139.0" GridPane.columnIndex="1" />
+                        <Label text="Medico:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox prefHeight="25.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Enfermero(a):" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox prefHeight="25.0" prefWidth="366.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Medicamentos:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <ListView prefHeight="102.0" prefWidth="375.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <HBox layoutX="8.0" layoutY="280.0" prefHeight="38.0" prefWidth="307.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Nuevo" />
+                        <Button mnemonicParsing="false" onAction="#guardarRegistro" text="Guardar" />
+                        <Button mnemonicParsing="false" text="Actualizar" />
+                        <Button mnemonicParsing="false" text="Eliminar" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="529.0">
+               <children>
+                  <ListView layoutX="8.0" layoutY="7.0" prefHeight="223.0" prefWidth="513.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
