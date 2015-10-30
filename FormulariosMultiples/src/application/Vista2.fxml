@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="187.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Vista2Controller">
+   <children>
+      <Button layoutX="87.0" layoutY="81.0" mnemonicParsing="false" onAction="#abrirFormulario1" text="Ir a F1" />
+   </children>
+</AnchorPane>
