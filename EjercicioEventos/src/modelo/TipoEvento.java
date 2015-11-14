@@ -24,10 +24,10 @@ public class TipoEvento {
 	}
 	
 	// ++++++++Metodos codigoTipoEvento
-	public int getcodigoTipoEvento() {
+	public int getCodigoTipoEvento() {
 	     return codigoTipoEvento.get();
 	}
-	public void setcodigoTipoEvento(int codigoTipoEvento) {
+	public void setCodigoTipoEvento(int codigoTipoEvento) {
 	      this.codigoTipoEvento = new SimpleIntegerProperty(codigoTipoEvento);
 	}
 	public IntegerProperty codigoTipoEventoProperty() {
@@ -35,10 +35,10 @@ public class TipoEvento {
 	}
 	
 	 //++++++++Metodos tipoEvento
-	public String gettipoEvento() {
+	public String getTipoEvento() {
 	     return tipoEvento.get();
 	}
-	public void settipoEvento(String tipoEvento) {
+	public void setTipoEvento(String tipoEvento) {
 	      this.tipoEvento = new SimpleStringProperty(tipoEvento);
 	}
 	public StringProperty tipoEventoProperty() {

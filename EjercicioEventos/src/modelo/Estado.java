@@ -22,10 +22,10 @@ public class Estado{
 	   }
 
 	// ++++++++Metodos codigoEstado
-	 public int getcodigoEstado() {
+	 public int getCodigoEstado() {
 	     return codigoEstado.get();
 	 }
-	 public void setcodigoEstado(int codigoEstado) {
+	 public void setCodigoEstado(int codigoEstado) {
 	      this.codigoEstado = new SimpleIntegerProperty(codigoEstado);
 	 }
 	 public IntegerProperty codigoEstadoProperty() {
@@ -33,10 +33,10 @@ public class Estado{
 	 }
 
 	// ++++++++Metodos nombreEstado
-	 public String getnombreEstado() {
+	 public String getNombreEstado() {
 	     return nombreEstado.get();
 	 }
-	 public void setnombreEstado(String nombreEstado) {
+	 public void setNombreEstado(String nombreEstado) {
 	      this.nombreEstado = new SimpleStringProperty(nombreEstado);
 	 }
 	 public StringProperty nombreEstadoProperty() {

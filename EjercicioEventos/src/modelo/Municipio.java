@@ -1,9 +1,15 @@
 package modelo;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 public class Municipio{
 	   private IntegerProperty codigoMunicipio;
@@ -18,10 +24,10 @@ public class Municipio{
 	   }
 
 	// ++++++++Metodos codigoMunicipio
-	 public int getcodigoMunicipio() {
+	 public int getCodigoMunicipio() {
 	     return codigoMunicipio.get();
 	 }
-	 public void setcodigoMunicipio(int codigoMunicipio) {
+	 public void setCodigoMunicipio(int codigoMunicipio) {
 	      this.codigoMunicipio = new SimpleIntegerProperty(codigoMunicipio);
 	 }
 	 public IntegerProperty codigoMunicipioProperty() {
@@ -29,10 +35,10 @@ public class Municipio{
 	 }
 
 	// ++++++++Metodos nombreMunicipio
-	 public String getnombreMunicipio() {
+	 public String getNombreMunicipio() {
 	     return nombreMunicipio.get();
 	 }
-	 public void setnombreMunicipio(String nombreMunicipio) {
+	 public void setNombreMunicipio(String nombreMunicipio) {
 	      this.nombreMunicipio = new SimpleStringProperty(nombreMunicipio);
 	 }
 	 public StringProperty nombreMunicipioProperty() {
@@ -40,13 +46,41 @@ public class Municipio{
 	 }
 
 	// ++++++++Metodos codigoDepartamento
-	 public int getcodigoDepartamento() {
+	 public int getCodigoDepartamento() {
 	     return codigoDepartamento.get();
 	 }
-	 public void setcodigoDepartamento(int codigoDepartamento) {
+	 public void setCodigoDepartamento(int codigoDepartamento) {
 	      this.codigoDepartamento = new SimpleIntegerProperty(codigoDepartamento);
 	 }
 	 public IntegerProperty codigoDepartamentoProperty() {
 	     return codigoDepartamento;
+	 }
+	 
+	 public static void llenarComboBoxMunicipio(
+			 Connection conexion,
+			 ObservableList<Municipio> lista){
+		 try {
+			Statement instruccion = conexion.createStatement();
+			ResultSet resultado = instruccion.executeQuery(
+					"SELECT codigo_municipio, nombre_municipio, "
+					+ " codigo_departamento "
+					+ " FROM tbl_municipios");
+			while(resultado.next()){
+				lista.add(new Municipio(
+							resultado.getInt("codigo_municipio"),
+							resultado.getString("nombre_municipio"),
+							resultado.getInt("codigo_departamento")
+						)
+				);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 }
+	 
+	 @Override
+	 public String toString(){
+		 return nombreMunicipio.get();
 	 }
 }

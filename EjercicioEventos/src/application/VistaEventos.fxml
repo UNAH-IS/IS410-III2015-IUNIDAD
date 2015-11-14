@@ -68,32 +68,36 @@
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextArea prefHeight="38.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtNombreEvento" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtCantidadInvitados" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextArea fx:id="txtADescripcion" prefHeight="38.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextArea fx:id="txtADireccion" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ComboBox fx:id="cboTipoEvento" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <ComboBox fx:id="cboEstado" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="cboMunicipio" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <DatePicker fx:id="dtPkrfecha" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <HBox layoutX="10.0" layoutY="333.0" prefHeight="36.0" prefWidth="267.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Nuevo" />
-                        <Button mnemonicParsing="false" text="Guardar" />
-                        <Button mnemonicParsing="false" text="Actualizar" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="bntNuevo" mnemonicParsing="false" onAction="#limpiar" text="Nuevo" />
+                        <Button fx:id="bntGuardar" mnemonicParsing="false" onAction="#guardarRegistro" text="Guardar" />
+                        <Button fx:id="bntActualizar" disable="true" mnemonicParsing="false" text="Actualizar" />
+                        <Button fx:id="bntEliminar" disable="true" mnemonicParsing="false" text="Eliminar" />
                      </children>
                   </HBox>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="4.0" layoutY="25.0" prefHeight="418.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tblViewEventos" layoutX="4.0" layoutY="25.0" prefHeight="418.0" prefWidth="311.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="clmnNombreEvento" prefWidth="75.0" text="Evento" />
+                      <TableColumn fx:id="clmnFecha" prefWidth="75.0" text="Fecha" />
+                        <TableColumn fx:id="clmnCantidadInvitados" prefWidth="75.0" text="Invitados" />
+                        <TableColumn fx:id="clmnTipoEvento" prefWidth="75.0" text="Tipo Evento" />
+                        <TableColumn fx:id="clmnEstado" prefWidth="75.0" text="Estado" />
+                        <TableColumn fx:id="clmnMunicipio" prefWidth="75.0" text="Municipio" />
                     </columns>
                   </TableView>
                </children>
