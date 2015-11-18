@@ -82,8 +82,8 @@
                      <children>
                         <Button fx:id="bntNuevo" mnemonicParsing="false" onAction="#limpiar" text="Nuevo" />
                         <Button fx:id="bntGuardar" mnemonicParsing="false" onAction="#guardarRegistro" text="Guardar" />
-                        <Button fx:id="bntActualizar" disable="true" mnemonicParsing="false" text="Actualizar" />
-                        <Button fx:id="bntEliminar" disable="true" mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="bntActualizar" disable="true" mnemonicParsing="false" onAction="#actualizarRegistro" text="Actualizar" />
+                        <Button fx:id="bntEliminar" disable="true" mnemonicParsing="false" onAction="#eliminarRegistro" text="Eliminar" />
                      </children>
                   </HBox>
                </children>

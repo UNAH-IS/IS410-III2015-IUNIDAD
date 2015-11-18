@@ -27,6 +27,7 @@ import modelo.TipoEvento;
 import utilidades.GestorConexiones;
 
 public class ControladorVistaEventos implements Initializable{
+	private int codigoEventoSeleccionado;
 	private GestorConexiones gestorConexiones;
 	
 	@FXML private ComboBox<TipoEvento> cboTipoEvento;
@@ -86,6 +87,7 @@ public class ControladorVistaEventos implements Initializable{
 							Evento valorAnterior, 
 							Evento valorNuevo) {
 						if (valorNuevo!=null){
+							codigoEventoSeleccionado = valorNuevo.getCodigoEvento();
 							txtNombreEvento.setText(valorNuevo.getNombreEvento());
 							txtADescripcion.setText(valorNuevo.getDescripcion());
 							txtADireccion.setText(valorNuevo.getDireccion());
@@ -185,6 +187,62 @@ public class ControladorVistaEventos implements Initializable{
 			Alert mensaje = new Alert(AlertType.INFORMATION);
 			mensaje.setHeaderText("Exito");
 			mensaje.setContentText("Registro almacenado correctamente");
+			mensaje.setTitle("Exito");
+			mensaje.show();
+		}
+	}
+	
+	@FXML
+	public void actualizarRegistro(){
+		validarCampos();		
+		Evento e = 
+				new Evento(
+						//Puede utilizar en vez de codigoEventoSeleccionado esta linea: tblViewEventos.getSelectionModel().getSelectedItem().getCodigoEvento()
+						codigoEventoSeleccionado,
+						txtNombreEvento.getText(),
+						txtADescripcion.getText(),
+						txtADireccion.getText(),
+						Date.valueOf(dtPkrfecha.getValue()),
+						Integer.valueOf(txtCantidadInvitados.getText()),
+						cboTipoEvento.getSelectionModel().getSelectedItem(),
+						cboEstado.getSelectionModel().getSelectedItem(),
+						cboMunicipio.getSelectionModel().getSelectedItem()
+				);
+		gestorConexiones.establecerConexion();
+		int resultado = e.actualizarRegistro(gestorConexiones.getConexion());
+		gestorConexiones.cerrarConexion();
+		if (resultado <=0){
+			Alert mensaje = new Alert(AlertType.ERROR);
+			mensaje.setHeaderText("Error al actualizar");
+			mensaje.setContentText("No se actualizo el registro");
+			mensaje.setTitle("Error");
+			mensaje.show();
+		} else {
+			listaEventos.set(tblViewEventos.getSelectionModel().getSelectedIndex(),e);
+			Alert mensaje = new Alert(AlertType.INFORMATION);
+			mensaje.setHeaderText("Exito");
+			mensaje.setContentText("Registro actualizado correctamente");
+			mensaje.setTitle("Exito");
+			mensaje.show();
+		}
+	}
+	
+	@FXML
+	public void eliminarRegistro(){
+		gestorConexiones.establecerConexion();
+		int resultado = tblViewEventos.getSelectionModel().getSelectedItem().eliminarRegistro(gestorConexiones.getConexion());
+		gestorConexiones.cerrarConexion();
+		if (resultado <=0){
+			Alert mensaje = new Alert(AlertType.ERROR);
+			mensaje.setHeaderText("Error al eliminar registro");
+			mensaje.setContentText("No se elimino el registro");
+			mensaje.setTitle("Error");
+			mensaje.show();
+		} else {
+			listaEventos.remove(tblViewEventos.getSelectionModel().getSelectedIndex());
+			Alert mensaje = new Alert(AlertType.INFORMATION);
+			mensaje.setHeaderText("Exito");
+			mensaje.setContentText("Registro eliminado correctamente");
 			mensaje.setTitle("Exito");
 			mensaje.show();
 		}

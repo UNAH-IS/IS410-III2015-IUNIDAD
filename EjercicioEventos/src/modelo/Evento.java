@@ -203,4 +203,49 @@ public class Evento{
 			return 0;
 		}
 	 }
+	 
+	 public int actualizarRegistro(Connection conexion){
+		 try {
+			PreparedStatement instruccion = 
+					conexion.prepareStatement(
+						"UPDATE tbl_eventos " +
+						"SET nombre_evento = ?, " + 
+						"	descripcion = ?, " +
+						"	direccion = ?, " +
+						"	fecha = ?, " +
+						"	cantidad_invitados = ?, " + 
+						"	codigo_tipo_evento = ?, " +
+						"	codigo_estado = ?, " +
+						"	codigo_municipio = ? " +
+						"WHERE codigo_evento = ?"
+					);
+			instruccion.setString(1, nombreEvento.get());
+			instruccion.setString(2, descripcion.get());
+			instruccion.setString(3, direccion.get());
+			instruccion.setDate(4, fecha);
+			instruccion.setInt(5, cantidadInvitados.get());
+			instruccion.setInt(6, tipoEvento.getCodigoTipoEvento());
+			instruccion.setInt(7, estado.getCodigoEstado());
+			instruccion.setInt(8, municipio.getCodigoMunicipio());
+			instruccion.setInt(9, codigoEvento.get());
+			return instruccion.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	 }
+	 
+	 public int eliminarRegistro(Connection conexion){
+		 try {
+			PreparedStatement instruccion = conexion.prepareStatement(
+					"DELETE FROM tbl_eventos " + 
+					"WHERE codigo_evento = ?"
+			 );
+			instruccion.setInt(1, codigoEvento.get());
+			return instruccion.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	 }
 }
