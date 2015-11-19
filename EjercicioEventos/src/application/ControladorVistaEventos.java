@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -159,8 +160,14 @@ public class ControladorVistaEventos implements Initializable{
 	
 	@FXML
 	public void guardarRegistro(){
-		validarCampos();
-		
+		ArrayList<String> errores = validarCampos();
+		if (errores.size()>0){
+			String strErrores="";
+			for (int i = 0; i<errores.size();i++)
+				strErrores += errores.get(i) + ",";
+			mostrarMensaje(AlertType.ERROR, "Error", "Error de validacion", strErrores);
+			return;
+		}
 		Evento e = 
 				new Evento(
 						0,
@@ -194,7 +201,8 @@ public class ControladorVistaEventos implements Initializable{
 	
 	@FXML
 	public void actualizarRegistro(){
-		validarCampos();		
+		validarCampos();
+		System.out.println("Evento seleccionado:"+codigoEventoSeleccionado);
 		Evento e = 
 				new Evento(
 						//Puede utilizar en vez de codigoEventoSeleccionado esta linea: tblViewEventos.getSelectionModel().getSelectedItem().getCodigoEvento()
@@ -229,26 +237,36 @@ public class ControladorVistaEventos implements Initializable{
 	
 	@FXML
 	public void eliminarRegistro(){
+		if (tblViewEventos.getSelectionModel().getSelectedItem() == null){
+			mostrarMensaje(AlertType.ERROR, "Error", "Error al eliminar registro", "No se ha seleccionado ningun registro");
+			return;
+		}
+		
 		gestorConexiones.establecerConexion();
 		int resultado = tblViewEventos.getSelectionModel().getSelectedItem().eliminarRegistro(gestorConexiones.getConexion());
 		gestorConexiones.cerrarConexion();
 		if (resultado <=0){
-			Alert mensaje = new Alert(AlertType.ERROR);
-			mensaje.setHeaderText("Error al eliminar registro");
-			mensaje.setContentText("No se elimino el registro");
-			mensaje.setTitle("Error");
-			mensaje.show();
+			mostrarMensaje(AlertType.ERROR, "Error", "Error al eliminar registro", "No se elimino el registro");
 		} else {
 			listaEventos.remove(tblViewEventos.getSelectionModel().getSelectedIndex());
-			Alert mensaje = new Alert(AlertType.INFORMATION);
-			mensaje.setHeaderText("Exito");
-			mensaje.setContentText("Registro eliminado correctamente");
-			mensaje.setTitle("Exito");
-			mensaje.show();
+			mostrarMensaje(AlertType.INFORMATION, "Exito", "Exito", "Registro eliminado correctamente");
 		}
 	}
 	
-	public void validarCampos(){
+	public void mostrarMensaje(AlertType tipoMensaje, String titulo, String encabezado, String contenido){
+		Alert mensaje = new Alert(tipoMensaje);
+		mensaje.setHeaderText(encabezado);
+		mensaje.setContentText(contenido);
+		mensaje.setTitle(titulo);
+		mensaje.show();
+	}
+	
+	public ArrayList<String> validarCampos(){
+		ArrayList<String> errores = new ArrayList<String>();
+		if (txtNombreEvento.getText().trim().equals(""))
+			errores.add("El campo nombre evento esta vacio");
 		
+		//...
+		return errores;
 	}
 }

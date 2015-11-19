@@ -197,7 +197,18 @@ public class Evento{
 			instruccion.setInt(6, tipoEvento.getCodigoTipoEvento());
 			instruccion.setInt(7, estado.getCodigoEstado());
 			instruccion.setInt(8, municipio.getCodigoMunicipio());
-			return instruccion.executeUpdate();
+			
+			
+			int resultado = instruccion.executeUpdate();
+			if (resultado>0){
+				Statement instruccionId = 
+						conexion.createStatement();
+				ResultSet resultadoId = instruccionId.executeQuery("SELECT last_insert_id() as codigoEvento");
+				resultadoId.first();
+				//codigoEvento = new SimpleIntegerProperty(resultadoId.getInt("codigoEvento"));
+				setCodigoEvento(resultadoId.getInt("codigoEvento"));
+			}
+			return resultado;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
@@ -237,12 +248,23 @@ public class Evento{
 	 
 	 public int eliminarRegistro(Connection conexion){
 		 try {
-			PreparedStatement instruccion = conexion.prepareStatement(
+			PreparedStatement instruccionEliminarInvitados =
+					conexion.prepareStatement(
+						"DELETE FROM tbl_invitados_x_evento "+
+						"WHERE codigo_evento = ?");
+			
+			instruccionEliminarInvitados.setInt(1, codigoEvento.get());
+			System.out.println(
+					"Se eliminaron: " +
+					instruccionEliminarInvitados.executeUpdate()
+			);
+			 
+			PreparedStatement instruccionEliminarEvento = conexion.prepareStatement(
 					"DELETE FROM tbl_eventos " + 
 					"WHERE codigo_evento = ?"
 			 );
-			instruccion.setInt(1, codigoEvento.get());
-			return instruccion.executeUpdate();
+			instruccionEliminarEvento.setInt(1, codigoEvento.get());
+			return instruccionEliminarEvento.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
