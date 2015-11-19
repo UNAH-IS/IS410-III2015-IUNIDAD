@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -164,7 +166,7 @@ public class ControladorVistaEventos implements Initializable{
 		if (errores.size()>0){
 			String strErrores="";
 			for (int i = 0; i<errores.size();i++)
-				strErrores += errores.get(i) + ",";
+				strErrores += errores.get(i) + "\n";
 			mostrarMensaje(AlertType.ERROR, "Error", "Error de validacion", strErrores);
 			return;
 		}
@@ -201,7 +203,14 @@ public class ControladorVistaEventos implements Initializable{
 	
 	@FXML
 	public void actualizarRegistro(){
-		validarCampos();
+		ArrayList<String> errores = validarCampos();
+		if (errores.size()>0){
+			String strErrores="";
+			for (int i = 0; i<errores.size();i++)
+				strErrores += errores.get(i) + "\n";
+			mostrarMensaje(AlertType.ERROR, "Error", "Error de validacion", strErrores);
+			return;
+		}
 		System.out.println("Evento seleccionado:"+codigoEventoSeleccionado);
 		Evento e = 
 				new Evento(
@@ -265,8 +274,41 @@ public class ControladorVistaEventos implements Initializable{
 		ArrayList<String> errores = new ArrayList<String>();
 		if (txtNombreEvento.getText().trim().equals(""))
 			errores.add("El campo nombre evento esta vacio");
+		if (txtADescripcion.getText().trim().equals(""))
+			errores.add("El campo descripcion esta vacio");
+		if (txtADireccion.getText().trim().equals(""))
+			errores.add("El campo direccion esta vacio");
+		if (txtCantidadInvitados.getText().trim().equals(""))
+			errores.add("El campo cantidad invitados esta vacio");
+		if (dtPkrfecha.getValue() == null)
+			errores.add("El campo fecha esta vacio");
+		if (cboEstado.getSelectionModel().getSelectedItem() == null)
+			errores.add("El campo estado esta vacio");
+		if (cboMunicipio.getSelectionModel().getSelectedItem() == null)
+			errores.add("El campo municipio esta vacio");
+		if (cboTipoEvento.getSelectionModel().getSelectedItem() == null)
+			errores.add("El campo tipo evento esta vacio");
 		
+		try {
+			Integer.valueOf(txtCantidadInvitados.getText());
+		}catch(NumberFormatException e){
+			//e.printStackTrace();
+			errores.add("El campo cantidad invitados no es numerico");
+		}
+		
+		if (txtNombreEvento.getText().length()>500)
+			errores.add("Nombre evento no puede superar los 500 caracteres");
 		//...
+		
+		//En caso de necesitar validaciones con expresiones regulares
+		//utilizar el siguiente codigo
+		/*String patron = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$";//"[0-9]{4}-[0-9]{4}-[0-9]{5}";
+		Pattern pattern = Pattern.compile(patron);
+		Matcher matcher = pattern.matcher(txtNombreEvento.getText());
+		if (!matcher.matches())
+			errores.add("No cumple con el patron de la identidad");
+		 */
+		
 		return errores;
 	}
 }
