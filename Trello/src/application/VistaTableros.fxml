@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="511.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControladorVistaTableros">
+   <children>
+      <SplitPane dividerPositions="0.3082191780821918" layoutX="196.0" layoutY="168.0" prefHeight="468.0" prefWidth="879.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="4.0" layoutY="4.0" text="Tableros:" />
+                  <SplitPane dividerPositions="0.6618257261410788" layoutX="80.0" layoutY="25.0" orientation="VERTICAL" prefHeight="484.0" prefWidth="285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="tblInformacion" layoutX="14.0" prefHeight="251.0" prefWidth="283.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="clmnnombreTablero" prefWidth="126.0" text="Nombre Tablero" />
+                                  <TableColumn fx:id="clmnfechaCreacion" prefWidth="138.0" text="Fecha creacion" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <GridPane layoutX="7.0" layoutY="7.0" prefHeight="113.0" prefWidth="290.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="98.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="192.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Nombre tablero:" GridPane.halignment="RIGHT">
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Descripcion:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Fecha:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField GridPane.columnIndex="1" />
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <HBox layoutX="6.0" layoutY="125.0" prefHeight="33.0" prefWidth="200.0" spacing="5.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Nuevo" />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Guardar" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="772.0">
+               <children>
+                  <ListView fx:id="lstVwTarjetasPendientes" layoutX="14.0" layoutY="24.0" prefHeight="245.0" prefWidth="200.0" />
+                  <ListView fx:id="lstVwTarjetasProceso" layoutX="252.0" layoutY="24.0" prefHeight="245.0" prefWidth="200.0" />
+                  <ListView fx:id="lstVwTarjetasFinalizadas" layoutX="486.0" layoutY="24.0" prefHeight="245.0" prefWidth="200.0" />
+                  <Label layoutX="15.0" layoutY="6.0" text="Tareas pendientes:" />
+                  <Label layoutX="252.0" layoutY="6.0" text="Tareas en proceso:" />
+                  <Label layoutX="486.0" layoutY="6.0" text="Tareas finalizadas:" />
+                  <VBox alignment="CENTER" layoutX="454.0" layoutY="78.0" prefHeight="68.0" prefWidth="31.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="&gt;" />
+                        <Button mnemonicParsing="false" text="&lt;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="217.0" layoutY="75.0" prefHeight="68.0" prefWidth="31.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="&gt;" />
+                        <Button mnemonicParsing="false" text="&lt;" />
+                     </children>
+                  </VBox>
+                  <GridPane layoutX="16.0" layoutY="277.0" prefHeight="224.0" prefWidth="367.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="84.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="283.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="50.0" minHeight="7.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Titulo Tarea:" GridPane.halignment="RIGHT">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Descripcion:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Fecha limite:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Usuario:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Prioridad:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" />
+                        <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Estado:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <VBox alignment="CENTER" layoutX="389.0" layoutY="291.0" prefHeight="136.0" prefWidth="122.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Nuevo" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Guardar" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Actualizar" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Eliminar" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
