@@ -73,7 +73,6 @@ public class ControladorVistaEventos implements Initializable{
 		listaEstados = FXCollections.observableArrayList();
 		listaMunicipios = FXCollections.observableArrayList();
 		listaEventos = FXCollections.observableArrayList();
-		
 		cboTipoEvento.setItems(listaTipoEventos);
 		cboEstado.setItems(listaEstados);
 		cboMunicipio.setItems(listaMunicipios);

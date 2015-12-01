@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="148.0" prefWidth="290.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.ControladorLogin">
+   <children>
+      <TextField fx:id="txtUsuario" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="261.0" promptText="Usuario">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtContrasena" layoutX="14.0" layoutY="60.0" prefHeight="25.0" prefWidth="261.0" promptText="Password">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="115.0" layoutY="109.0" mnemonicParsing="false" onAction="#abrirFormularioPrincipal" text="Ingresar" />
+   </children>
+</AnchorPane>
