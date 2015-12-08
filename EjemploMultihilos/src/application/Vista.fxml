@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="310.0" prefWidth="309.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.Controlador">
+   <children>
+      <Label fx:id="etiqueta1" layoutX="20.0" layoutY="20.0" text="Label" />
+      <Label fx:id="etiqueta2" layoutX="20.0" layoutY="43.0" text="Label" />
+      <ProgressBar fx:id="progressBar1" layoutX="20.0" layoutY="68.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar layoutX="20.0" layoutY="94.0" prefWidth="200.0" />
+      <ProgressIndicator fx:id="progressIndicator1" layoutX="22.0" layoutY="136.0" progress="0.0" />
+      <ProgressIndicator layoutX="70.0" layoutY="123.0" />
+   </children>
+</AnchorPane>

@@ -72,7 +72,9 @@ public class Perfil {
 		return nombre.get();
 	}
 	
-	public int guardarRegistro(Connection connection, File archivoImagen){
+	public int guardarRegistro(
+				Connection connection, 
+				File archivoImagen){
 		try{
 		    PreparedStatement instruccion = 
 		    		connection.prepareStatement(
